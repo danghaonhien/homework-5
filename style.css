@@ -1,0 +1,16 @@
+body{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+}
+#title {
+    margin-top: 1em;
+    padding: 1em;
+}
+#container {
+    text-align: center;
+    margin:0em 2em 0 2em;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+}
