@@ -7,12 +7,11 @@
     <title>Tackle Time</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <script
     src="https://code.jquery.com/jquery-3.4.1.js"
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-
 </head>
 <body>
 <div id="title">
@@ -39,26 +38,26 @@
               </div>
         </div>
     </div>
-    <h4 class="ui horizontal black divider">     MORNING</h4>
+    <h3 class="ui horizontal grey divider">     MORNING</h3>
    
       
     <div class="ui equal width grid">
         <div class="column">
-          <div class="ui segment">
+          <div class="ui segment" class="time">
             7:00 AM
           </div>
         </div>
         <div class="eight wide column">
           <div class="ui fluid icon input">
-                <input type="text" placeholder="Plan your Tackle....">
+                <input type="text" id="yourText" placeholder="Plan your Tackle...."  />
                 <i class="hand rock outline icon"></i>
               </div>
         </div>
         <div class="column">
             <div class="ui buttons">
-                <button class="ui button">Don't</button>
+                <button class="ui button" id="dont">Don't</button>
                 <div class="or"></div>
-                <button class="ui secondary button">Do</button>
+                <button class="ui secondary button" id="do">Do</button>
           </div>
         </div>
       </div>
@@ -77,9 +76,9 @@
         <div class="column">
          
             <div class="ui buttons">
-                <button class="ui button">Don't</button>
+                <button class="ui button" class="dont">Don't</button>
                 <div class="or"></div>
-                <button class="ui secondary button">Do</button>
+                <button class="ui secondary button" class ="do">Do</button>
           </div>
         </div>
       </div>
@@ -98,13 +97,13 @@
         </div>
         <div class="column">
             <div class="ui buttons">
-                <button class="ui button">Don't</button>
+                <button class="ui button" class="dont">Don't</button>
                 <div class="or"></div>
-                <button class="ui secondary button">Do</button>
+                <button class="ui secondary button" class="do">Do</button>
           </div>
         </div>
       </div>
-      <h3 class="ui horizontal black divider">
+      <h3 class="ui horizontal grey divider">
         NOON
       </h3>
     <div class="ui equal width grid">
@@ -121,9 +120,9 @@
         </div>
         <div class="column">
             <div class="ui buttons">
-                <button class="ui button">Don't</button>
+                <button class="ui button" class="dont">Don't</button>
                 <div class="or"></div>
-                <button class="ui secondary button">Do</button>
+                <button class="ui secondary button" class="do">Do</button>
           </div>
         </div>
       </div>
@@ -141,9 +140,9 @@
         </div>
         <div class="column">
             <div class="ui buttons">
-                <button class="ui button">Don't</button>
+                <button class="ui button" class="dont">Don't</button>
                 <div class="or"></div>
-                <button class="ui secondary button">Do</button>
+                <button class="ui secondary button" class="do">Do</button>
           </div>
         </div>
       </div>
@@ -161,13 +160,13 @@
         </div>
         <div class="column">
             <div class="ui buttons">
-                <button class="ui button">Don't</button>
+                <button class="ui button" class="dont">Don't</button>
                 <div class="or"></div>
-                <button class="ui secondary button">Do</button>
+                <button class="ui secondary button" class="do">Do</button>
           </div>
         </div>
       </div>
-      <h3 class="ui horizontal black divider">
+      <h3 class="ui horizontal grey divider">
         EVENING
       </h3>
     <div class="ui equal width grid">
@@ -184,9 +183,9 @@
         </div>
         <div class="column">
             <div class="ui buttons">
-                <button class="ui button">Don't</button>
+                <button class="ui button" class="dont">Don't</button>
                 <div class="or"></div>
-                <button class="ui secondary button">Do</button>
+                <button class="ui secondary button" class="do">Do</button>
           </div>
         </div>
       </div>
@@ -204,9 +203,9 @@
         </div>
         <div class="column">
             <div class="ui buttons">
-                <button class="ui button">Don't</button>
+                <button class="ui button" class="dont">Don't</button>
                 <div class="or"></div>
-                <button class="ui secondary button">Do</button>
+                <button class="ui secondary button" class="do">Do</button>
           </div>
         </div>
       </div>
@@ -216,7 +215,7 @@
 
     </section>
     <script src="lib/moment/moment.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+      <!-- <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script> -->
     <script src="script.js"></script>
 </body>
 </html>

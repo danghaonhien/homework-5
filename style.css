@@ -1,7 +1,11 @@
 body{
     text-align: center;
+    justify-content: center;
     font-family: 'Roboto', sans-serif;
     font-family: 'Roboto Mono', monospace;
+}
+h3 {
+    color:grey;
 }
 #title {
     margin-top: 1em;
@@ -9,7 +13,7 @@ body{
 }
 #container {
     text-align: center;
-    margin:0em 2em 0 2em;
+    justify-content: center;
     font-family: 'Roboto', sans-serif;
     font-family: 'Roboto Mono', monospace;
     font-weight: bold;
