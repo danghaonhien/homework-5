@@ -32,35 +32,38 @@
     <section id="container">
       <div class="ui middle aligned equal width grid">
         <div class="column">
-          <div class="ui segment">
+          <div class="ui segment" id="time">
             Tackle Time
           </div>
         </div>
         <div class="eight wide column">
           <div class="ui segment" id="realTime">
-            Daily Favorite Tackle Hustle
           </div>
         </div>
         <div class="column">
-          
-            <button id="addBtn" class="ui basic button" tabindex="0">ADD TACKLE</button>
-          
+            <button id="addBtn" class="ui huge basic button" tabindex="0">ADD TACKLE</button>
         </div>
       </div>
-        <ul id="todo-list"></ul>
+   
       </div>
       <div class="todos">
       <div class="ui form" id="todo-form" method="POST">
         <div class="field">
+          <div class="count">
           <p>Tackles to be completed: <span id="todo-count">0</span></p>
+        </div>
           <input type="text" placeholder="What needs to be takled?" name="todo-text" id="todo-text">
-          <ul id="todo-list"></ul>
+        </div>
+      </div>
+      <div class="ui divider"></div>
+      <div class="ui centered grid" id="todoHolder">
+        <div class="sixteen wide column">
+          <div id="todo-list">
+          </div>
         </div>
       </div>
     </div>
-      
-  
-      
+    
     </section>
     <script src="lib/moment/moment.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script> -->

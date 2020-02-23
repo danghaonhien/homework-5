@@ -6,7 +6,6 @@ $(document).ready(function() {
   $("#time").text(time);
 
   var todoInput = $("#todo-text");
-  var todoForm = $("#todo-form");
   var todoList = $("#todo-list");
   var todoCountSpan = $("#todo-count");
   var todos = [];
@@ -20,16 +19,16 @@ $(document).ready(function() {
     // Render a new li for each todo
     for (var i = 0; i < todos.length; i++) {
       var todo = todos[i];
-
-      var li = $("<li>");
-      li.text(todo);
-      li.attr("data-index", i);
+      var p = $("<p>");
+     p.addClass("ui segment")
+      p.text(todo);
+      p.attr("data-index", i);
 
       var button = $("<button>");
-      button.text("Done");
-
-      li.append(button);
-      todoList.append(li);
+      button.text("DONE")
+      button.addClass("right floated mini circular ui basic button")
+      p.append(button);
+      todoList.append(p);
     }
   }
 
@@ -71,6 +70,7 @@ $(document).ready(function() {
     storeTodos();
     renderTodos();
   });
+
 
   // When a element inside of the todoList is clicked...
   todoList.on("click", function(event) {

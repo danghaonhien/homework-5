@@ -23,3 +23,15 @@ h3 {
     font-family: 'Roboto Mono', monospace;
     font-weight: bold;  
 }
+#todo-text {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;  
+    margin: 1em 0em 1em 0em;
+}
+.count { 
+    margin: 1em 0em 0em 0em;
+}
+#todoHolder { 
+    margin: 1em 0em 0em 0em;
+}
