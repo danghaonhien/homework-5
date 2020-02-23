@@ -30,7 +30,7 @@
       </h1>
     </div>
     <section id="container">
-      <div class="ui equal width grid">
+      <div class="ui middle aligned equal width grid">
         <div class="column">
           <div class="ui segment">
             Tackle Time
@@ -42,12 +42,23 @@
           </div>
         </div>
         <div class="column">
-          <div class="ui segment">
-            <p id="addBtn">ADD TACKLE</p>
-          </div>
+          
+            <button id="addBtn" class="ui basic button" tabindex="0">ADD TACKLE</button>
+          
         </div>
       </div>
-      <h3 class="ui horizontal grey divider">MORNING</h3>
+        <ul id="todo-list"></ul>
+      </div>
+      <div class="todos">
+      <div class="ui form" id="todo-form" method="POST">
+        <div class="field">
+          <p>Tackles to be completed: <span id="todo-count">0</span></p>
+          <input type="text" placeholder="What needs to be takled?" name="todo-text" id="todo-text">
+        </div>
+      </div>
+    </div>
+      
+      <!-- <h3 class="ui horizontal grey divider">MORNING</h3>
 
       <div id="myList">
         <div class="myInput">
@@ -75,155 +86,8 @@
         </div>
       </div>
     </div>
-      <div id="newTask" class="ui equal width grid"></div>
-      <!-- <div class="ui equal width grid">
-        <div class="column">
-          <div class="ui segment">
-            9:00 AM
-          </div>
-        </div>
-        <div class="eight wide column">
-          <div class="ui fluid icon input">
-                <input type="text" placeholder="Plan your Tackle....">
-                <i class="hand rock outline icon"></i>
-              </div>
-        </div>
-        <div class="column">
-         
-            <div class="ui buttons">
-                <button class="ui button" class="dont">Don't</button>
-                <div class="or"></div>
-                <button class="ui secondary button" class ="do">Do</button>
-          </div>
-        </div>
-      </div>
+      <div id="newTask" class="ui equal width grid"></div> -->
       
-    <div class="ui equal width grid">
-        <div class="column">
-          <div class="ui segment">
-            11:00 AM
-          </div>
-        </div>
-        <div class="eight wide column">
-          <div class="ui fluid icon input">
-                <input type="text" placeholder="Plan your Tackle....">
-                <i class="hand rock outline icon"></i>
-              </div>
-        </div>
-        <div class="column">
-            <div class="ui buttons">
-                <button class="ui button" class="dont">Don't</button>
-                <div class="or"></div>
-                <button class="ui secondary button" class="do">Do</button>
-          </div>
-        </div>
-      </div>
-      <h3 class="ui horizontal grey divider">
-        NOON
-      </h3>
-    <div class="ui equal width grid">
-        <div class="column">
-          <div class="ui segment">
-            12:00 PM
-          </div>
-        </div>
-        <div class="eight wide column">
-          <div class="ui fluid icon input">
-                <input type="text" placeholder="Plan your Tackle....">
-                <i class="hand rock outline icon"></i>
-              </div>
-        </div>
-        <div class="column">
-            <div class="ui buttons">
-                <button class="ui button" class="dont">Don't</button>
-                <div class="or"></div>
-                <button class="ui secondary button" class="do">Do</button>
-          </div>
-        </div>
-      </div>
-    <div class="ui equal width grid">
-        <div class="column">
-          <div class="ui segment">
-            3:00 PM
-          </div>
-        </div>
-        <div class="eight wide column">
-          <div class="ui fluid icon input">
-                <input type="text" placeholder="Plan your Tackle....">
-                <i class="hand rock outline icon"></i>
-              </div>
-        </div>
-        <div class="column">
-            <div class="ui buttons">
-                <button class="ui button" class="dont">Don't</button>
-                <div class="or"></div>
-                <button class="ui secondary button" class="do">Do</button>
-          </div>
-        </div>
-      </div>
-    <div class="ui equal width grid">
-        <div class="column">
-          <div class="ui segment">
-            6:00 PM
-          </div>
-        </div>
-        <div class="eight wide column">
-          <div class="ui fluid icon input">
-                <input type="text" placeholder="Plan your Tackle....">
-                <i class="hand rock outline icon"></i>
-              </div>
-        </div>
-        <div class="column">
-            <div class="ui buttons">
-                <button class="ui button" class="dont">Don't</button>
-                <div class="or"></div>
-                <button class="ui secondary button" class="do">Do</button>
-          </div>
-        </div>
-      </div>
-      <h3 class="ui horizontal grey divider">
-        EVENING
-      </h3>
-    <div class="ui equal width grid">
-        <div class="column">
-          <div class="ui segment">
-            8:00 PM
-          </div>
-        </div>
-        <div class="eight wide column">
-            <div class="ui fluid icon input">
-                <input type="text" placeholder="Plan your Tackle....">
-                <i class="hand rock outline icon"></i>
-              </div>
-        </div>
-        <div class="column">
-            <div class="ui buttons">
-                <button class="ui button" class="dont">Don't</button>
-                <div class="or"></div>
-                <button class="ui secondary button" class="do">Do</button>
-          </div>
-        </div>
-      </div>
-    <div class="ui equal width grid">
-        <div class="column">
-          <div class="ui segment">
-            10:00 PM
-          </div>
-        </div>
-        <div class="eight wide column">
-            <div class="ui fluid icon input">
-                <input type="text" placeholder="Plan your Tackle....">
-                <i class="hand rock outline icon"></i>
-              </div>
-        </div>
-        <div class="column">
-            <div class="ui buttons">
-                <button class="ui button" class="dont">Don't</button>
-                <div class="or"></div>
-                <button class="ui secondary button" class="do">Do</button>
-          </div>
-        </div> -->
-      <!-- </div> -->
     </section>
     <script src="lib/moment/moment.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script> -->
