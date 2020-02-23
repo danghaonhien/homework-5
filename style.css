@@ -35,3 +35,23 @@ h3 {
 #todoHolder { 
     margin: 1em 0em 0em 0em;
 }
+
+#todoText {
+
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;  
+    margin: 1em 0em 1em 0em;
+}
+
+#saveBtn {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;  
+}
+
+#completeBtn {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;  
+}

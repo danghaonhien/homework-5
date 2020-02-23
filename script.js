@@ -16,7 +16,7 @@ $(document).ready(function() {
     todoList.html("");
     todoCountSpan.text(todos.length);
 
-    // Render a new li for each todo
+    // Render a new p for each todo
     for (var i = 0; i < todos.length; i++) {
       var todo = todos[i];
       var p = $("<p>");
@@ -26,7 +26,7 @@ $(document).ready(function() {
 
       var button = $("<button>");
       button.text("DONE")
-      button.addClass("right floated mini circular ui basic button")
+      button.addClass("right floated mini ui basic button")
       p.append(button);
       todoList.append(p);
     }
