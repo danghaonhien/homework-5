@@ -300,6 +300,7 @@ $(document).ready(function() {
         eveningTodos.splice(index, 1);
         noonTodos.splice(index, 1);
         mainTodos.splice(index, 1);
+        todos.splice(index,1)
     localStorage.clear();
     $("#mainList").empty();
     $("#noonList").empty();
@@ -310,6 +311,8 @@ $(document).ready(function() {
       renderNoonTodos();
     storeEveningTodos();
       renderEveningTodos();
+      storeTodos();
+      renderTodos();
     }
   });
 });
