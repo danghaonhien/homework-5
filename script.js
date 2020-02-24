@@ -37,12 +37,10 @@ $(document).ready(function() {
     // Clear todoList element and update todoCountSpan
     mainInput.html("");
     // Render a new p for each todo
-    for (var i = 0; i < mainTodos.length; i++) {
-      var mainTodo = mainTodos[i];
-      var p = $("<p>");
-      p.text(mainTodo);
-      mainInput.append(p);
-    }
+ 
+    
+    //   mainInput.append(mainInput.val());
+    
   }
 
   function init() {
@@ -116,14 +114,21 @@ $(document).ready(function() {
     renderMainTodos();
   });
 
-  $("#completeBtn").on("click", function(e) {
-    e.preventDefault();
-    mainInput.val("");
-    localStorage.clear("mainTodos")
-    storeMainTodos();
-    $("#morning").addClass("green column")
-    renderMainTodos();
-  });
+//   $("#completeBtn").on("click", function(e) {
+//     e.preventDefault();
+//     mainInput.val("");
+//    let deleteStorage = JSON.parse(localStorage.getItem("mainTodos"))
+//     for (var i =0; i< mainTodos.length; i++) {
+//         deleteStorage = JSON.parse(mainTodos[i]);
+//         if (deleteStorage.mainTodos) {
+//             items.splice(i, 1);
+//         }
+//     }
+//     storeMainTodos();
+//     $("#morning").addClass("green column")
+//     renderMainTodos();
+//   });
+
   // When a element inside of the todoList is clicked...
   todoList.on("click", function(event) {
     var element = event.target;
@@ -137,6 +142,21 @@ $(document).ready(function() {
       // Store updated todos in localStorage, re-render the list
       storeTodos();
       renderTodos();
+    }
+  });
+  $("#completeBtn").on("click", function(event) {
+    var e = event.target;
+    event.preventDefault();
+    mainInput.val("");
+    // If that element is a button...
+    if (e.matches("#completeBtn") === true) {
+      // Get its data-index value and remove the todo element from the list
+      var indexes = e.getAttribute("data-index");
+      mainTodos.splice(indexes, 1);
+
+      // Store updated todos in localStorage, re-render the list
+      storeMainTodos();
+      renderMainTodos();
     }
   });
 });
