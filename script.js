@@ -175,6 +175,7 @@ $(document).ready(function() {
     if (mainText === "") {
       return;
     }
+    $("#morning").css("background-color", "")
     // Add new todoText to todos array, clear the input
     mainTodos.push(mainText);
     mainInput.val("");
@@ -191,6 +192,7 @@ $(document).ready(function() {
     if (noonText === "") {
       return;
     }
+    $("#afternoon").css("background-color", "")
     // Add new todoText to todos array, clear the input
     noonTodos.push(noonText);
     noonInput.val("");
@@ -207,6 +209,7 @@ $(document).ready(function() {
     if (eveningText === "") {
       return;
     }
+    $("#evening").css("background-color", "")
     // Add new todoText to todos array, clear the input
     eveningTodos.push(eveningText);
     eveningInput.val("");
@@ -240,7 +243,7 @@ $(document).ready(function() {
       var index = e.getAttribute("data-index");
       mainTodos.splice(index, 1);
       $("#mainList").empty();
-
+      if(mainTodos.length <= 0)
       $("#morning").css("background-color", "#05BF7D");
 
       // Store updated todos in localStorage, re-render the list
@@ -260,7 +263,10 @@ $(document).ready(function() {
       noonTodos.splice(index, 1);
       $("#noonList").empty();
 
-      $("#afternoon").css("background-color", "#05BF7D");
+    if(noonTodos.length <= 0) 
+    $("#afternoon").css("background-color", "#05BF7D");
+
+     
 
       // Store updated todos in localStorage, re-render the list
       storeNoonTodos();
@@ -278,7 +284,7 @@ $(document).ready(function() {
       var index = e.getAttribute("data-index");
       eveningTodos.splice(index, 1);
       $("#eveningList").empty();
-
+      if(eveningTodos.length <= 0)
       $("#evening").css("background-color", "#05BF7D");
 
       // Store updated todos in localStorage, re-render the list
