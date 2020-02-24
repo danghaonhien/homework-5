@@ -108,11 +108,42 @@
   </div>  
 
 </div>
+  <div class="ui divider"></div>
+  <div class="ui middle aligned equal width grid">
+    <div class="four wide column">
+      <div class="ui segment" id="evening">
+        EVENING
+      </div>
+    </div>
+    <div class="eight wide column">
+     
+        <div class="ui form"  method="POST">
+        <input type="text" placeholder="What needs to be tackled?" name="todo-text" id="eveningTodoText">
+     
+    </div>
+  
+    <div class="ui centered grid">
+      <div class=" column">
+        <div id="eveningList">
+        </div>
+      </div>
+
+      
+    </div>
+    </div>
+    <div class="column" id="controlBtn">
+        <button id="saveEveningBtn" class="ui  basic button" tabindex="0">TACKLING</button>
+        <button id="completeEveningBtn" class="ui basic button" tabindex="0">COMPLETE</button>
+    </div>
+    
+  </div>  
+
+</div>
      
       <div class="ui divider"></div>
        <div class="ui form" id="todo-form" method="POST">
         <div class="field">
-          <button id="addBtn" class="ui large basic button" tabindex="0">ADD More TACKLE</button>
+          <button id="addBtn" class="ui large basic button" tabindex="0">ADD More TACKLE</button> <span> <button id="resetBtn" class="ui large basic button" tabindex="0">RESET All TACKLE</button></span>
           <div class="count">
           <p>Tackles to be completed: <span id="todo-count">0</span></p>
         </div>

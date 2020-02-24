@@ -10,13 +10,15 @@ $(document).ready(function() {
   var todoCountSpan = $("#todo-count");
   var mainInput = $("#todoText");
   let mainTodos = [];
-  let noonInput=$("#noonTodoText")
+  let noonInput = $("#noonTodoText");
+  let eveningInput = $("#eveningTodoText");
   var todos = [];
   let noonTodos = [];
+  let eveningTodos = [];
   init();
   mainInit();
   noonInit();
-
+  eveningInit();
   function renderTodos() {
     // Clear todoList element and update todoCountSpan
     todoList.html("");
@@ -44,7 +46,6 @@ $(document).ready(function() {
       var mainTodo = mainTodos[i];
       var p1 = $("<p>");
       p1.addClass("ui segment");
-      p1.addClass("pChild");
       p1.text(mainTodo);
       p1.attr("data-index", i);
       $("#mainList").append(p1);
@@ -58,10 +59,22 @@ $(document).ready(function() {
       var noonTodo = noonTodos[i];
       var p2 = $("<p>");
       p2.addClass("ui segment");
-      p2.addClass("pChild");
       p2.text(noonTodo);
       p2.attr("data-index", i);
       $("#noonList").append(p2);
+    }
+  }
+  function renderEveningTodos() {
+    // Clear todoList element and update todoCountSpan
+    $("#eveningList").html("");
+    // Render a new p for each todo
+    for (var i = 0; i < eveningTodos.length; i++) {
+      var eveningTodo = eveningTodos[i];
+      var p3 = $("<p>");
+      p3.addClass("ui segment");
+      p3.text(eveningTodo);
+      p3.attr("data-index", i);
+      $("#eveningList").append(p3);
     }
   }
 
@@ -103,6 +116,19 @@ $(document).ready(function() {
     renderNoonTodos();
     // Render todos to the DOM
   }
+  function eveningInit() {
+    // Get stored todos from localStorage
+    // Parsing the JSON string to an object
+
+    let storedEveningTodos = JSON.parse(localStorage.getItem("eveningTodos"));
+    // If todos were retrieved from localStorage, update the todos array to it
+    if (storedEveningTodos !== null) {
+      eveningTodos = storedEveningTodos;
+    }
+
+    renderEveningTodos();
+    // Render todos to the DOM
+  }
 
   function storeTodos() {
     // Stringify and set "todos" key in localStorage to todos array
@@ -115,6 +141,10 @@ $(document).ready(function() {
   function storeNoonTodos() {
     // Stringify and set "todos" key in localStorage to todos array
     localStorage.setItem("noonTodos", JSON.stringify(noonTodos));
+  }
+  function storeEveningTodos() {
+    // Stringify and set "todos" key in localStorage to todos array
+    localStorage.setItem("eveningTodos", JSON.stringify(eveningTodos));
   }
 
   // When form is submitted...
@@ -152,7 +182,7 @@ $(document).ready(function() {
     storeMainTodos();
     renderMainTodos();
   });
-//   Save Noon Btn
+  //   Save Noon Btn
   $("#saveNoonBtn").on("click", function(event) {
     event.preventDefault();
 
@@ -167,6 +197,22 @@ $(document).ready(function() {
     // Store updated todos in localStorage
     storeNoonTodos();
     renderNoonTodos();
+  });
+  //   Save Evening Btn
+  $("#saveEveningBtn").on("click", function(event) {
+    event.preventDefault();
+
+    let eveningText = eveningInput.val().trim();
+    // Return from function early if submitted todoText is blank
+    if (eveningText === "") {
+      return;
+    }
+    // Add new todoText to todos array, clear the input
+    eveningTodos.push(eveningText);
+    eveningInput.val("");
+    // Store updated todos in localStorage
+    storeEveningTodos();
+    renderEveningTodos();
   });
 
   // When a element inside of the todoList is clicked...
@@ -202,11 +248,11 @@ $(document).ready(function() {
       renderMainTodos();
     }
   });
-//   Complete Noon Btn
+  //   Complete Noon Btn
   $("#completeNoonBtn").on("click", function(event) {
     var e = event.target;
     event.preventDefault();
-    mainInput.val("");
+    noonInput.val("");
     // If that element is a button...
     if (e.matches("#completeNoonBtn") === true) {
       // Get its data-index value and remove the todo element from the list
@@ -219,6 +265,45 @@ $(document).ready(function() {
       // Store updated todos in localStorage, re-render the list
       storeNoonTodos();
       renderNoonTodos();
+    }
+  });
+  //   Complete Evening Btn
+  $("#completeEveningBtn").on("click", function(event) {
+    var e = event.target;
+    event.preventDefault();
+    eveningInput.val("");
+    // If that element is a button...
+    if (e.matches("#completeEveningBtn") === true) {
+      // Get its data-index value and remove the todo element from the list
+      var index = e.getAttribute("data-index");
+      eveningTodos.splice(index, 1);
+      $("#eveningList").empty();
+
+      $("#evening").css("background-color", "#05BF7D");
+
+      // Store updated todos in localStorage, re-render the list
+      storeEveningTodos();
+      renderEveningTodos();
+    }
+  });
+  $("#resetBtn").on("click", function(event) {
+    var e = event.target;
+    event.preventDefault();
+    if (e.matches("#resetBtn") === true) {
+        var index = e.getAttribute("data-index");
+        eveningTodos.splice(index, 1);
+        noonTodos.splice(index, 1);
+        mainTodos.splice(index, 1);
+    localStorage.clear();
+    $("#mainList").empty();
+    $("#noonList").empty();
+    $("#eveningList").empty();  
+    storeMainTodos();
+      renderMainTodos();
+    storeNoonTodos();
+      renderNoonTodos();
+    storeEveningTodos();
+      renderEveningTodos();
     }
   });
 });
