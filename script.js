@@ -10,9 +10,12 @@ $(document).ready(function() {
   var todoCountSpan = $("#todo-count");
   var mainInput = $("#todoText");
   let mainTodos = [];
+  let noonInput=$("#noonTodoText")
   var todos = [];
+  let noonTodos = [];
   init();
   mainInit();
+  noonInit();
 
   function renderTodos() {
     // Clear todoList element and update todoCountSpan
@@ -35,12 +38,31 @@ $(document).ready(function() {
   }
   function renderMainTodos() {
     // Clear todoList element and update todoCountSpan
-    mainInput.html("");
+    $("#mainList").html("");
     // Render a new p for each todo
- 
-    
-    //   mainInput.append(mainInput.val());
-    
+    for (var i = 0; i < mainTodos.length; i++) {
+      var mainTodo = mainTodos[i];
+      var p1 = $("<p>");
+      p1.addClass("ui segment");
+      p1.addClass("pChild");
+      p1.text(mainTodo);
+      p1.attr("data-index", i);
+      $("#mainList").append(p1);
+    }
+  }
+  function renderNoonTodos() {
+    // Clear todoList element and update todoCountSpan
+    $("#noonList").html("");
+    // Render a new p for each todo
+    for (var i = 0; i < noonTodos.length; i++) {
+      var noonTodo = noonTodos[i];
+      var p2 = $("<p>");
+      p2.addClass("ui segment");
+      p2.addClass("pChild");
+      p2.text(noonTodo);
+      p2.attr("data-index", i);
+      $("#noonList").append(p2);
+    }
   }
 
   function init() {
@@ -64,8 +86,21 @@ $(document).ready(function() {
     if (storedMainTodos !== null) {
       mainTodos = storedMainTodos;
     }
-    $("#morning").removeClass("green column")
+
     renderMainTodos();
+    // Render todos to the DOM
+  }
+  function noonInit() {
+    // Get stored todos from localStorage
+    // Parsing the JSON string to an object
+
+    let storedNoonTodos = JSON.parse(localStorage.getItem("noonTodos"));
+    // If todos were retrieved from localStorage, update the todos array to it
+    if (storedNoonTodos !== null) {
+      noonTodos = storedNoonTodos;
+    }
+
+    renderNoonTodos();
     // Render todos to the DOM
   }
 
@@ -76,6 +111,10 @@ $(document).ready(function() {
   function storeMainTodos() {
     // Stringify and set "todos" key in localStorage to todos array
     localStorage.setItem("mainTodos", JSON.stringify(mainTodos));
+  }
+  function storeNoonTodos() {
+    // Stringify and set "todos" key in localStorage to todos array
+    localStorage.setItem("noonTodos", JSON.stringify(noonTodos));
   }
 
   // When form is submitted...
@@ -100,6 +139,7 @@ $(document).ready(function() {
   // When form is submitted...
   $("#saveBtn").on("click", function(event) {
     event.preventDefault();
+
     let mainText = mainInput.val().trim();
     // Return from function early if submitted todoText is blank
     if (mainText === "") {
@@ -107,27 +147,27 @@ $(document).ready(function() {
     }
     // Add new todoText to todos array, clear the input
     mainTodos.push(mainText);
-    mainInput.val(mainText);
-    $("#morning").removeClass("green column")
+    mainInput.val("");
     // Store updated todos in localStorage
     storeMainTodos();
     renderMainTodos();
   });
+//   Save Noon Btn
+  $("#saveNoonBtn").on("click", function(event) {
+    event.preventDefault();
 
-//   $("#completeBtn").on("click", function(e) {
-//     e.preventDefault();
-//     mainInput.val("");
-//    let deleteStorage = JSON.parse(localStorage.getItem("mainTodos"))
-//     for (var i =0; i< mainTodos.length; i++) {
-//         deleteStorage = JSON.parse(mainTodos[i]);
-//         if (deleteStorage.mainTodos) {
-//             items.splice(i, 1);
-//         }
-//     }
-//     storeMainTodos();
-//     $("#morning").addClass("green column")
-//     renderMainTodos();
-//   });
+    let noonText = noonInput.val().trim();
+    // Return from function early if submitted todoText is blank
+    if (noonText === "") {
+      return;
+    }
+    // Add new todoText to todos array, clear the input
+    noonTodos.push(noonText);
+    noonInput.val("");
+    // Store updated todos in localStorage
+    storeNoonTodos();
+    renderNoonTodos();
+  });
 
   // When a element inside of the todoList is clicked...
   todoList.on("click", function(event) {
@@ -151,12 +191,34 @@ $(document).ready(function() {
     // If that element is a button...
     if (e.matches("#completeBtn") === true) {
       // Get its data-index value and remove the todo element from the list
-      var indexes = e.getAttribute("data-index");
-      mainTodos.splice(indexes, 1);
+      var index = e.getAttribute("data-index");
+      mainTodos.splice(index, 1);
+      $("#mainList").empty();
+
+      $("#morning").css("background-color", "#05BF7D");
 
       // Store updated todos in localStorage, re-render the list
       storeMainTodos();
       renderMainTodos();
+    }
+  });
+//   Complete Noon Btn
+  $("#completeNoonBtn").on("click", function(event) {
+    var e = event.target;
+    event.preventDefault();
+    mainInput.val("");
+    // If that element is a button...
+    if (e.matches("#completeNoonBtn") === true) {
+      // Get its data-index value and remove the todo element from the list
+      var index = e.getAttribute("data-index");
+      noonTodos.splice(index, 1);
+      $("#noonList").empty();
+
+      $("#afternoon").css("background-color", "#05BF7D");
+
+      // Store updated todos in localStorage, re-render the list
+      storeNoonTodos();
+      renderNoonTodos();
     }
   });
 });

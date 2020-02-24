@@ -36,6 +36,25 @@ h3 {
     margin: 1em 0em 0em 0em;
 }
 
+#noonTodoText {
+
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;  
+    margin: 1em 0em 1em 0em;
+}
+
+#saveNoonBtn {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;  
+}
+
+#completeNoonBtn {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;  
+}
 #todoText {
 
     font-family: 'Roboto', sans-serif;
@@ -55,3 +74,24 @@ h3 {
     font-family: 'Roboto Mono', monospace;
     font-weight: bold;  
 }
+
+/* Color Theme Swatches in Hex */
+.Paleta-de-cor-nos-tons-azul-1-hex { color: #01558C; }
+.Paleta-de-cor-nos-tons-azul-2-hex { color: #04708D; }
+.Paleta-de-cor-nos-tons-azul-3-hex { color: #048B7E; }
+.Paleta-de-cor-nos-tons-azul-4-hex { color: #09A67B; }
+.Paleta-de-cor-nos-tons-azul-5-hex { color: #05BF7D; }
+
+/* Color Theme Swatches in RGBA */
+.Paleta-de-cor-nos-tons-azul-1-rgba { color: rgba(1, 85, 140, 1); }
+.Paleta-de-cor-nos-tons-azul-2-rgba { color: rgba(4, 112, 141, 1); }
+.Paleta-de-cor-nos-tons-azul-3-rgba { color: rgba(4, 139, 126, 1); }
+.Paleta-de-cor-nos-tons-azul-4-rgba { color: rgba(9, 166, 123, 1); }
+.Paleta-de-cor-nos-tons-azul-5-rgba { color: rgba(5, 191, 125, 1); }
+
+/* Color Theme Swatches in HSLA */
+.Paleta-de-cor-nos-tons-azul-1-hsla { color: hsla(203, 98, 27, 1); }
+.Paleta-de-cor-nos-tons-azul-2-hsla { color: hsla(192, 94, 28, 1); }
+.Paleta-de-cor-nos-tons-azul-3-hsla { color: hsla(174, 94, 28, 1); }
+.Paleta-de-cor-nos-tons-azul-4-hsla { color: hsla(163, 89, 34, 1); }
+.Paleta-de-cor-nos-tons-azul-5-hsla { color: hsla(158, 94, 38, 1); }
