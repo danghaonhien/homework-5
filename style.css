@@ -1,5 +1,6 @@
 body{
-    width: 980px;
+    /* width: 980px; */
+    align-items: center;
     text-align: center;
     justify-content: center;
     font-family: 'Roboto', sans-serif;
