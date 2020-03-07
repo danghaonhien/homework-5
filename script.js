@@ -4,6 +4,10 @@ $(document).ready(function() {
   $("#realTime").text(day);
   let time = moment().format("hh:mm a");
   $("#time").text(time);
+  var currentTime = new Date(time);
+  var saveTime = currentTime.getTime();
+  
+  localStorage.setItem('time', saveTime );
 
   var todoInput = $("#todo-text");
   var todoList = $("#todo-list");
@@ -15,10 +19,16 @@ $(document).ready(function() {
   var todos = [];
   let noonTodos = [];
   let eveningTodos = [];
+  // let saveTime = [];
   init();
   mainInit();
   noonInit();
   eveningInit();
+  // function {
+  //   for (var i = 0; i < saveTime.length; i++) {
+  //     saveTime[i].push(time);
+  //   }
+  // }
   function renderTodos() {
     // Clear todoList element and update todoCountSpan
     todoList.html("");
@@ -44,6 +54,7 @@ $(document).ready(function() {
     // Render a new p for each todo
     for (var i = 0; i < mainTodos.length; i++) {
       var mainTodo = mainTodos[i];
+ 
       var p1 = $("<p>");
       p1.addClass("ui segment");
       p1.text(mainTodo);
@@ -70,6 +81,7 @@ $(document).ready(function() {
     // Render a new p for each todo
     for (var i = 0; i < eveningTodos.length; i++) {
       var eveningTodo = eveningTodos[i];
+    
       var p3 = $("<p>");
       p3.addClass("ui segment");
       p3.text(eveningTodo);
@@ -99,6 +111,7 @@ $(document).ready(function() {
     if (storedMainTodos !== null) {
       mainTodos = storedMainTodos;
     }
+  
 
     renderMainTodos();
     // Render todos to the DOM
@@ -106,7 +119,7 @@ $(document).ready(function() {
   function noonInit() {
     // Get stored todos from localStorage
     // Parsing the JSON string to an object
-
+  
     let storedNoonTodos = JSON.parse(localStorage.getItem("noonTodos"));
     // If todos were retrieved from localStorage, update the todos array to it
     if (storedNoonTodos !== null) {
@@ -119,7 +132,7 @@ $(document).ready(function() {
   function eveningInit() {
     // Get stored todos from localStorage
     // Parsing the JSON string to an object
-
+    
     let storedEveningTodos = JSON.parse(localStorage.getItem("eveningTodos"));
     // If todos were retrieved from localStorage, update the todos array to it
     if (storedEveningTodos !== null) {
@@ -130,6 +143,11 @@ $(document).ready(function() {
     // Render todos to the DOM
   }
 
+  function storeTime(){
+  
+    localStorage.setItem("time", JSON.stringify(time));
+   
+  }
   function storeTodos() {
     // Stringify and set "todos" key in localStorage to todos array
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -165,6 +183,7 @@ $(document).ready(function() {
     // Store updated todos in localStorage, re-render the list
     storeTodos();
     renderTodos();
+    storeTime()
   });
   // When form is submitted...
   $("#saveBtn").on("click", function(event) {
@@ -182,6 +201,8 @@ $(document).ready(function() {
     // Store updated todos in localStorage
     storeMainTodos();
     renderMainTodos();
+    storeTime()
+   
   });
   //   Save Noon Btn
   $("#saveNoonBtn").on("click", function(event) {
@@ -199,6 +220,7 @@ $(document).ready(function() {
     // Store updated todos in localStorage
     storeNoonTodos();
     renderNoonTodos();
+    storeTime()
   });
   //   Save Evening Btn
   $("#saveEveningBtn").on("click", function(event) {
@@ -216,6 +238,7 @@ $(document).ready(function() {
     // Store updated todos in localStorage
     storeEveningTodos();
     renderEveningTodos();
+    storeTime()
   });
 
   // When a element inside of the todoList is clicked...
@@ -230,6 +253,7 @@ $(document).ready(function() {
 
       // Store updated todos in localStorage, re-render the list
       storeTodos();
+      storeTime()
       renderTodos();
     }
   });
@@ -248,7 +272,9 @@ $(document).ready(function() {
 
       // Store updated todos in localStorage, re-render the list
       storeMainTodos();
+      storeTime();
       renderMainTodos();
+ 
     }
   });
   //   Complete Noon Btn
@@ -271,6 +297,8 @@ $(document).ready(function() {
       // Store updated todos in localStorage, re-render the list
       storeNoonTodos();
       renderNoonTodos();
+      storeTime();
+     
     }
   });
   //   Complete Evening Btn
@@ -290,6 +318,7 @@ $(document).ready(function() {
       // Store updated todos in localStorage, re-render the list
       storeEveningTodos();
       renderEveningTodos();
+      storeTime();
     }
   });
   $("#resetBtn").on("click", function(event) {
@@ -305,6 +334,7 @@ $(document).ready(function() {
     $("#mainList").empty();
     $("#noonList").empty();
     $("#eveningList").empty();  
+    $("#todo-list").empty();
     storeMainTodos();
       renderMainTodos();
     storeNoonTodos();
@@ -313,6 +343,7 @@ $(document).ready(function() {
       renderEveningTodos();
       storeTodos();
       renderTodos();
+      storeTime();
     }
   });
 });
